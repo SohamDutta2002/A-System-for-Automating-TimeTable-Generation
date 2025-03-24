@@ -1,0 +1,35 @@
+[33mcommit 0a3939fde53f0964fbeba2655d52e77c4ddb4813[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Soham <sohamsouthpoint02@gmail.com>
+Date:   Sun Mar 16 01:36:43 2025 +0530
+
+    Add basic implementation of the genetic algorithm
+
+[33mcommit 07c6f60c9921de8f6b7f16b7465224948fb1b1cf[m
+Author: Soham <sohamsouthpoint02@gmail.com>
+Date:   Sun Mar 16 01:24:18 2025 +0530
+
+    Add data models ofr timetable generator
+
+[33mcommit ad252dec63faaf89c40301d45cfa582f0973ad56[m
+Author: Soham <sohamsouthpoint02@gmail.com>
+Date:   Sun Mar 16 01:16:57 2025 +0530
+
+    Add package initialiser for timetable generator
+
+[33mcommit a2dc2dbcb2726e8b1778a99988da6ecfc1740e40[m
+Author: Soham Dutta <65543385+SohamDutta2002@users.noreply.github.com>
+Date:   Mon Jan 20 23:46:45 2025 +0530
+
+    Update README.md
+
+[33mcommit 78551df8da47cefd8ef52418e4ba202dc1061685[m
+Author: Soham Dutta <65543385+SohamDutta2002@users.noreply.github.com>
+Date:   Mon Jan 20 23:46:00 2025 +0530
+
+    Update README.md
+
+[33mcommit 405fd9b0347a78ab18766622e506bb9fda728407[m
+Author: Soham Dutta <65543385+SohamDutta2002@users.noreply.github.com>
+Date:   Mon Jan 20 13:35:35 2025 +0530
+
+    Initial commit

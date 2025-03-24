@@ -1,0 +1,50 @@
+stages:
+  - data-ingestion
+  - validation
+  - algorithm-execution
+  - verification
+  - deployment
+  - feedback
+
+data-ingestion:
+  stage: data-ingestion
+  script:
+    # Fetch input data from institutional database/API
+    - python scripts/data_ingestion.py
+    # Save fetched data into a version-controlled repository
+    artifacts:
+      paths:
+        - data/input.json
+
+validation:
+  stage: validation
+  script:
+    # Validate input JSON schema
+    - python scripts/validate_data.py data/input.json
+
+algorithm-execution:
+  stage: algorithm-execution
+  script:
+    # Execute hybrid GA-SA algorithm
+    - python main.py --input data/input.json --algorithm hybrid --output timetable_output.json
+    artifacts:
+      paths:
+        - timetable_output.json
+
+verification:
+  stage: verification
+  script:
+    # Verify constraints satisfaction in generated timetable
+    - python scripts/verify_constraints.py timetable_output.json
+
+deployment:
+  stage: deployment
+  script:
+    # Deploy timetable via API or export formats like PDF/iCal
+    - python scripts/deploy_timetable.py timetable_output.json
+
+feedback:
+  stage: feedback
+  script:
+    # Collect user feedback on deployed timetables
+    - python scripts/collect_feedback.py --output feedback_report.json

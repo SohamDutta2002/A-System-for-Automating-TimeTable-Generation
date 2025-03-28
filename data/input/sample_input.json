@@ -1,0 +1,236 @@
+{
+  "metadata": {
+    "institution": "Heritage Institute of Technology",
+    "department": "Computer Science and Engineering",
+    "semester": "Spring 2025",
+    "created_date": "2025-03-12",
+    "version": "1.0",
+    "description": "Input data for automated timetable generation system"
+  },
+  "resources": {
+    "teachers": [
+      {
+        "id": "T001",
+        "name": "Prof. Subhasis Majumdar",
+        "department": "CSE",
+        "designation": "Professor",
+        "specialization": ["Algorithms", "Machine Learning"],
+        "max_hours_per_day": 6,
+        "max_hours_per_week": 20,
+        "preferences": {
+          "preferred_days": ["Monday", "Wednesday", "Friday"],
+          "preferred_time_slots": ["10:00-12:00", "14:00-16:00"],
+          "preferred_courses": ["C001", "C003"],
+          "preferred_rooms": ["R001", "R002"]
+        },
+        "unavailability": [
+          {"day": "Tuesday", "time_slots": ["09:00-11:00"]},
+          {"day": "Thursday", "time_slots": ["14:00-16:00"]}
+        ],
+        "is_mentor": true,
+        "max_mentees": 4
+      },
+      {
+        "id": "T002",
+        "name": "Prof. Subhajit Dutta",
+        "department": "CSE",
+        "designation": "Associate Professor",
+        "specialization": ["Databases", "Data Mining"],
+        "max_hours_per_day": 5,
+        "max_hours_per_week": 18,
+        "preferences": {
+          "preferred_days": ["Tuesday", "Thursday"],
+          "preferred_time_slots": ["09:00-11:00", "13:00-15:00"],
+          "preferred_courses": ["C002", "C005"],
+          "preferred_rooms": ["R002", "R003"]
+        },
+        "unavailability": [
+          {"day": "Monday", "time_slots": ["14:00-16:00"]},
+          {"day": "Friday", "time_slots": ["09:00-11:00"]}
+        ],
+        "is_mentor": true,
+        "max_mentees": 4
+      }
+    ],
+    "students": [
+      {
+        "id": "S2151141",
+        "name": "Arkaprabha Bera",
+        "batch": "CSE 2025",
+        "semester": 6,
+        "registered_courses": ["C001", "C002", "C004", "C008", "C010"],
+        "needs_mentor": true,
+        "special_requirements": []
+      },
+      {
+        "id": "S2151142",
+        "name": "Rupam Nandi",
+        "batch": "CSE 2025",
+        "semester": 6,
+        "registered_courses": ["C001", "C002", "C004", "C008", "C010"],
+        "needs_mentor": true,
+        "special_requirements": []
+      },
+      {
+        "id": "S2151146",
+        "name": "Soham Dutta",
+        "batch": "CSE 2025",
+        "semester": 6,
+        "registered_courses": ["C001", "C002", "C004", "C008", "C010"],
+        "needs_mentor": true,
+        "special_requirements": []
+      },
+      {
+        "id": "S2151226",
+        "name": "Akanksh Kumar Shaw",
+        "batch": "CSE 2025",
+        "semester": 6,
+        "registered_courses": ["C001", "C002", "C004", "C008", "C010"],
+        "needs_mentor": true,
+        "special_requirements": []
+      }
+    ],
+    "courses": [
+      {
+        "id": "C001",
+        "code": "CSE401",
+        "name": "Algorithm Design",
+        "credits": 4,
+        "hours_per_week": 4,
+        "sessions_per_week": 2,
+        "session_duration": 2,
+        "requires_lab": true,
+        "preferred_rooms": ["R001", "R002", "L001"],
+        "eligible_teachers": ["T001", "T002"],
+        "student_groups": ["G001"]
+      },
+      {
+        "id": "C002",
+        "code": "CSE402",
+        "name": "Database Management Systems",
+        "credits": 4,
+        "hours_per_week": 4,
+        "sessions_per_week": 2,
+        "session_duration": 2,
+        "requires_lab": true,
+        "preferred_rooms": ["R002", "R003", "L002"],
+        "eligible_teachers": ["T002"],
+        "student_groups": ["G001"]
+      }
+    ],
+    "rooms": [
+      {
+        "id": "R001",
+        "name": "CS-201",
+        "type": "Lecture Hall",
+        "capacity": 60,
+        "facilities": ["Projector", "Whiteboard", "AC"],
+        "building": "CS Building",
+        "floor": 2
+      },
+      {
+        "id": "R002",
+        "name": "CS-202",
+        "type": "Lecture Hall",
+        "capacity": 50,
+        "facilities": ["Projector", "Whiteboard", "AC"],
+        "building": "CS Building",
+        "floor": 2
+      },
+      {
+        "id": "L001",
+        "name": "Algorithm Lab",
+        "type": "Laboratory",
+        "capacity": 30,
+        "facilities": ["Computers", "Whiteboard", "AC"],
+        "building": "CS Building",
+        "floor": 1
+      }
+    ],
+    "time_slots": [
+      {"id": "TS001", "day": "Monday", "start_time": "09:00", "end_time": "10:00", "type": "Regular"},
+      {"id": "TS002", "day": "Monday", "start_time": "10:00", "end_time": "11:00", "type": "Regular"},
+      {"id": "TS003", "day": "Monday", "start_time": "11:00", "end_time": "12:00", "type": "Regular"},
+      {"id": "TS004", "day": "Monday", "start_time": "12:00", "end_time": "13:00", "type": "Regular"},
+      {"id": "TS005", "day": "Tuesday", "start_time": "09:00", "end_time": "10:00", "type": "Regular"},
+      {"id": "TS006", "day": "Tuesday", "start_time": "10:00", "end_time": "11:00", "type": "Regular"}
+    ],
+    "student_groups": [
+      {
+        "id": "G001",
+        "name": "CSE-A-2025",
+        "students": ["S2151141", "S2151142", "S2151146", "S2151226"],
+        "courses": ["C001", "C002"]
+      }
+    ]
+  },
+  "constraints": {
+    "hard_constraints": [
+      {
+        "type": "no_teacher_overlap",
+        "description": "Teachers cannot be scheduled for multiple classes at the same time",
+        "weight": 100
+      },
+      {
+        "type": "no_room_overlap",
+        "description": "A room cannot host multiple classes at the same time",
+        "weight": 100
+      },
+      {
+        "type": "no_student_group_overlap",
+        "description": "Student groups cannot have overlapping classes",
+        "weight": 100
+      },
+      {
+        "type": "mentor_group_size",
+        "description": "Each mentor must be assigned exactly 4 students",
+        "weight": 100
+      }
+    ],
+    "soft_constraints": [
+      {
+        "type": "no_back_to_back_sessions",
+        "description": "Teachers should not have back-to-back teaching sessions",
+        "weight": 50
+      },
+      {
+        "type": "equitable_teaching_load",
+        "description": "Teaching load should be distributed equitably among teachers",
+        "weight": 40
+      }
+    ]
+  },
+  "algorithm_parameters": {
+    "genetic_algorithm": {
+      "population_size": 300,
+      "generations": 500,
+      "mutation_rate": 0.2,
+      "crossover_rate": 0.8,
+      "selection_method": "tournament",
+      "tournament_size": 3,
+      "elitism_count": 5
+    },
+    "simulated_annealing": {
+      "initial_temperature": 1000,
+      "final_temperature": 1,
+      "cooling_rate": 0.99,
+      "max_iterations": 100,
+      "neighbor_generation_strategy": "swap",
+      "acceptance_probability_function": "exponential"
+    },
+    "hybrid": {
+      "local_search_iterations": 50,
+      "local_search_probability": 0.3,
+      "sa_iterations_per_generation": 10,
+      "population_replacement_strategy": "worst",
+      "convergence_threshold": 0.001,
+      "max_stagnation_generations": 20
+    },
+    "constraint_programming": {
+      "max_runtime_seconds": 300,
+      "search_strategy": "first_fail",
+      "optimization_objective": "minimize_constraint_violations",
+      "timeout_strategy": "return_best_so_far"
+    }
+  }
+}

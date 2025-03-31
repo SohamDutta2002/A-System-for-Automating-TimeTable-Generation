@@ -8,7 +8,7 @@ import random
 import math
 import numpy as np
 from tqdm import tqdm
-from .genetic_algorithm import GeneticAlgorithm
+from .genetic_algorithms import GeneticAlgorithm
 from .simulated_annealing import SimulatedAnnealing
 
 class HybridAlgorithm:

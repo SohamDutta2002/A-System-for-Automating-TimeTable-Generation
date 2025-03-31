@@ -1,3 +1,4 @@
+'''
 # main.py
 import argparse
 import logging
@@ -85,3 +86,72 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
+'''
+
+import argparse
+import logging
+from src.data_ingestion_process.data_loader import DataLoader
+from src.data_ingestion_process.data_validator import DataValidator
+from src.data_ingestion_process.data_transformer import DataTransformer
+
+from src.basic_algorithm_implementations.genetic_algorithms import GeneticAlgorithm
+from src.basic_algorithm_implementations.simulated_annealing import SimulatedAnnealing
+from src.basic_algorithm_implementations.hybrid_algorithm import HybridAlgorithm
+
+def main():
+    # Set up logging
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Automated Timetable Generation System")
+    parser.add_argument("input_file", help="Path to the input JSON file")
+    parser.add_argument("--algorithm", choices=["ga", "sa", "hybrid"], default="hybrid",
+                        help="Algorithm to use (default: hybrid)")
+    parser.add_argument("--output", help="Path to save the output timetable")
+    args = parser.parse_args()
+
+    # Initialize data ingestion components
+    loader = DataLoader()
+    validator = DataValidator()
+    transformer = DataTransformer()
+
+    try:
+        # Step 1: Load input data
+        raw_data = loader.load_json(args.input_file)
+
+        # Step 2: Validate input data
+        validation_result = validator.validate(raw_data)
+        if not validation_result["is_valid"]:
+            logger.error(f"Validation errors:\n{validation_result['errors']}")
+            return 1
+
+        # Step 3: Transform input data for algorithm processing
+        processed_data = transformer.transform(raw_data)
+
+        # Step 4: Select and run the algorithm
+        if args.algorithm == "ga":
+            logger.info("Running Genetic Algorithm...")
+            algorithm = GeneticAlgorithm(processed_data)
+        elif args.algorithm == "sa":
+            logger.info("Running Simulated Annealing...")
+            algorithm = SimulatedAnnealing(processed_data)
+        elif args.algorithm == "hybrid":
+            logger.info("Running Hybrid Algorithm...")
+            algorithm = HybridAlgorithm(processed_data)
+        else:
+            raise ValueError(f"Unsupported algorithm: {args.algorithm}")
+
+        result = algorithm.run()
+
+        # Step 5: Save the result to a file or print it out
+        output_path = args.output or "data/output/timetable_output.json"
+        loader.save_data(result, output_path)
+        logger.info(f"Timetable saved to {output_path}")
+
+    except Exception as e:
+        logger.error(f"An error occurred: {str(e)}")
+        return 1
+
+if __name__ == "__main__":
+    main()

@@ -18,7 +18,7 @@ from .genetic_algorithms import GeneticAlgorithm
 from .simulated_annealing import SimulatedAnnealing
 from .constraint_programming import ConstraintProgramming
 from .hybrid_algorithm import HybridAlgorithm
-from .utils import load_json_data, save_timetable, visualize_timetable
+#from .utils import load_json_data, save_timetable, visualize_timetable
 
 
 __all__ = [

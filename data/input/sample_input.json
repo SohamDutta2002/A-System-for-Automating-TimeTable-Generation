@@ -11,7 +11,7 @@
     "teachers": [
       {
         "id": "T001",
-        "name": "Prof. Subhasis Majumdar",
+        "name": "P1",
         "department": "CSE",
         "designation": "Professor",
         "specialization": ["Algorithms", "Machine Learning"],
@@ -32,7 +32,7 @@
       },
       {
         "id": "T002",
-        "name": "Prof. Subhajit Dutta",
+        "name": "P2",
         "department": "CSE",
         "designation": "Associate Professor",
         "specialization": ["Databases", "Data Mining"],
